@@ -1,18 +1,36 @@
 // Rajouter l'url visée par notre application // api
 // l'application frontend va faire une requete à cette api la 
-app.post('/api/user-model',(req, res, next) =>{
-    // besoin de supprimer l'id? y a t'il création d'un id automatiquement??
-    // delete req.body._id;
-    const user = new User({
-      ...req.body
-    });
-    user.save()
-        .then(() => res.status(201).json({ message: 'Utilisateur enregistré !'}))
-        .catch(error => res.status(400).json({ error }));
-});
 
-app.get('/api/user-model', (req, res, next) =>{
-    User.findOne({ _id: req.params.id })
-    .then(thing => res.status(200).json(thing))
-    .catch(error => res.status(404).json({ error }));
-});
+const bcrypt = require('bcrypt');
+const User = require('./models/user-model');
+// const fs = require('fs');
+
+// Async fonction because we will talk to the database
+exports.signup = async (req, res, next) => {
+   res.send("Get all posts route");
+  };
+
+exports.login = async (req, res, next) => {
+    res.send("Get new post route");
+};
+
+exports.getUserbyId = async (req, res, next) => {
+    res.send("Get post by id route");
+};
+
+/*
+
+ bcrypt.hash(req.body.password, 10)
+    .then(hash => {
+      const user = new User({
+        email: req.body.email,
+        // pseudo: , 
+        password: hash
+      });
+      user.save()
+        .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
+        .catch(error => res.status(400).json({ error }));
+    })
+    .catch(error => res.status(500).json({ error }));
+
+    */

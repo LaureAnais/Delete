@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/signup', userCtrl.signup);
+const userConstrollers = require('../controllers/users');
+
+router.route("/").get(userConstrollers.login).post(userConstrollers.signup);
+
+router.route("/:id").get(postConstrollers.getUserbyId);
 
 module.exports = router;
