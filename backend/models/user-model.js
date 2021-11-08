@@ -1,5 +1,5 @@
 const db = require('../config/db');
-
+/*
 // Models
 class User{
     constructor(email, pseudo, password) {
@@ -16,4 +16,4 @@ class User{
 
     }
 
-}
+} */
